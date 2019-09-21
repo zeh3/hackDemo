@@ -16,13 +16,20 @@ class App extends React.Component {
       
     }
     render () {
-      
+      //var date = new Date(this.state.events.startTime*100);
       return (
+        
         <div>
+          
           <h1> Schedule </h1>
           <p> welcome to hackillinois! </p>
+          
 
-          <ul>{this.state.events.map(event => <li>{event.name}</li>)}</ul>
+          <ul>{this.state.events.map(event => <li>{event.name + ": " + event.description + " is on " + 
+          new Date(event.startTime*1000).getMonth() + "/" + new Date(event.startTime*1000).getDate() + "/" + 
+          new Date(event.startTime*1000).getFullYear() + " at " + //get MM/DD/YYYY
+          new Date(event.startTime*1000).getHours() + ":" + new Date(event.startTime*1000).getMinutes() + "0" + //start time
+          "-" + new Date(event.endTime*1000).getHours() + ":" + new Date(event.endTime*1000).getMinutes() + "0"}</li>)}</ul>
         </div>
       );
     }
